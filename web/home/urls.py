@@ -3,6 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('contract/', views.SCcreator, name="contracts"),
-    path('dummy/', views.postearDummy, name="dummy")
+    path('crearContratos/', views.SCcreator, name="contracts"),
+    path('verContratos/', views.verContratos, name="dummy")
 ]

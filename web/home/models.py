@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Person(User):
+	balance = BigIntegerField(default=1000)
+
+	class Meta:
+		proxy = True
 
 class contract(models.Model):
 	date = models.DateTimeField(auto_now_add=True)
