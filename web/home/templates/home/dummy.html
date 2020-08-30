@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>dummy</title>
+	<title>Contratos Actuales</title>
 </head>
 <body>
 	{% if user.is_authenticated %}
 		{% for contrato in contratos %}
-			<div style="border: solid 3px blue">
-				<h1>{{ contrato.title }}</h1>
-				<h3>{{ contrato.contratista }}</h3>
-				<h3>{{ contrato.contratante }}</h3>
-			</div>
+			{% if user == contrato.contratista or user == contrato.contratante %}
+				<div style="border: solid 3px blue">
+					<h1>{{ contrato.title }}</h1>
+					<h3>{{ contrato.contratista }}</h3>
+					<h3>{{ contrato.contratante }}</h3>
+				</div>
+			{% endif %}
 		{% endfor %}
 	{% else %}
 		<h1>No estas logeado</h1>

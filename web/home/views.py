@@ -9,8 +9,8 @@ def home(request):
 def SCcreator(request):
 	return render(request, 'home/home.html')
 
-def postearDummy(request):
+def verContratos(request):
 	context = {
-		'contratos': request.user.objects.select_related('contract')
+		'contratos': contract.objects.all()
 	}
 	return render(request, 'home/dummy.html', context)
