@@ -11,6 +11,6 @@ def SCcreator(request):
 
 def postearDummy(request):
 	context = {
-		'contratos': request.user.objects.select_related('contract')
+		'contratos': contract.objects.all()
 	}
 	return render(request, 'home/dummy.html', context)
