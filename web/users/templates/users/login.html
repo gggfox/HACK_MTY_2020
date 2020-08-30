@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>log in</title>
+</head>
+<body>
+	{% load crispy_forms_tags %}
+	<form method="POST">
+		{% csrf_token %}
+		<fieldset>
+                <legend>Log In</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div>
+                <button style="border: solid 3px blue;" type="submit">Login</button>
+            </div>
+	</form>
+</body>
+</html>
