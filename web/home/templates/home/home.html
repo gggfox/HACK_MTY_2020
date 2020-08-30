@@ -4,11 +4,12 @@
 	<title>home</title>
 </head>
 <body>
-	<h1>Ingresa aqui!</h1>
 	{% if user.is_authenticated %}
+		<h1>Estas Logeado!</h1>
 		<a href="{% url 'dummy' %}" style="border: solid 3px green;"> puchale aqui para ver contratos</a>
 		<a href="{% url 'logout' %}" style="border: solid 3px blue;"> puchale aqui para de-logear!</a>
 	{% else %}
+		<h1>Ingresa aqui!</h1>
 		<a href="{% url 'login' %}" style="border: solid 3px blue;"> puchale aqui para logear!</a>
 	{% endif %}
 </body>

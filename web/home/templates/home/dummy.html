@@ -4,12 +4,17 @@
 	<title>dummy</title>
 </head>
 <body>
-	{% for contrato in contratos %}
-		<div style="border: solid 3px blue">
-			<h1>{{ contrato.title }}</h1>
-			<h3>{{ contrato.contratista }}</h3>
-			<h3>{{ contrato.contratante }}</h3>
-		</div>
-	{% endfor %}
+	{% if user.is_authenticated %}
+		{% for contrato in contratos %}
+			<div style="border: solid 3px blue">
+				<h1>{{ contrato.title }}</h1>
+				<h3>{{ contrato.contratista }}</h3>
+				<h3>{{ contrato.contratante }}</h3>
+			</div>
+		{% endfor %}
+	{% else %}
+		<h1>No estas logeado</h1>
+		<a href="{% url 'login' %}" style="border: solid 3px blue;"> puchale aqui para logear!</a>
+	{% endif %}
 </body>
 </html>
