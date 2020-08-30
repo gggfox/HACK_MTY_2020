@@ -1,4 +1,5 @@
 from .models import contract
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -10,6 +11,6 @@ def SCcreator(request):
 
 def postearDummy(request):
 	context = {
-		'contratos': contract.objects.all()
+		'contratos': request.user.objects.select_related('contract')
 	}
 	return render(request, 'home/dummy.html', context)
